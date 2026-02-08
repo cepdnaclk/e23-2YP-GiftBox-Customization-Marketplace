@@ -106,9 +106,8 @@ The successful completion of this project has equipped our team with practical s
 We are proud of what we have achieved and excited about the platform's potential for real-world deployment and commercial success.
 ## Links
 
-- [Project Repository](https://github.com/cepdnaclk/e23-2YP-GiftBox-Customization-Marketplace/{{ page.repository-name }}){:target="_blank"}
-- [Project Page](https://cepdnaclk.github.io/{{ page.repository-name}}){:target="_blank"}
-- [Department of Computer Engineering](http://www.ce.pdn.ac.lk/)
+- [Project Repository](https://github.com/cepdnaclk/{{ page.repository-name }}){:target="_blank"}
+- [Project Page](https://cepdnaclk.github.io/{{ page.repository-name }}/){:target="_blank"}
 - [University of Peradeniya](https://eng.pdn.ac.lk/)
 
 [//]: # (Please refer this to learn more about Markdown syntax)
