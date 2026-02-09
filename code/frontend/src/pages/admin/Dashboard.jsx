@@ -1,11 +1,10 @@
 import React from 'react';
 
 /**
- * Settings Component
- * This page allows the admin to configure system-wide preferences,
- * such as profile details, marketplace fees, or security settings.
+ * AdminDashboard Component
+ * This is the overview page. The header style matches the "Orders" page look.
  */
-const Settings = () => {
+const Dashboard = () => {
   return (
     // Main container with enough padding to match the clean layout
     <div style={{ padding: '40px', fontFamily: "'Inter', sans-serif", backgroundColor: '#f0f7ff', minHeight: '100vh' }}>
@@ -16,11 +15,11 @@ const Settings = () => {
         color: '#000000', 
         marginBottom: '32px' 
       }}>
-        Settings  
+        Dashboard
       </h1>
 
     </div>
   );
 };
 
-export default Settings;
+export default Dashboard;

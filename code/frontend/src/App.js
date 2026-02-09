@@ -1,29 +1,47 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Sidebar from './components/admin/Sidebar.jsx';
-import Dashboard from './pages/admin/AdminDashboard.jsx';
-import Partners from './pages/admin/Partners.jsx'; // මේවා ඔයා සාදාගත් නමින් තිබිය යුතුයි
-import Settings from './pages/admin/Settings.jsx';
-import AdminDashboard from './pages/admin/AdminDashboard.jsx';
 
+// --- COMPONENT IMPORTS ---
+// Ensure these paths match your actual folder structure
+import Sidebar from './components/admin/Sidebar.jsx';
+import Partners from './pages/admin/Partners.jsx'; 
+import Settings from './pages/admin/Settings.jsx';
+import Dashboard from './pages/admin/Dashboard.jsx';
+
+/**
+ * Main App Component
+ * Uses React Router to manage navigation and a Flexbox layout 
+ * to keep the Sidebar fixed on the left.
+ */
 function App() {
   return (
     <Router>
+      {/* Main Layout Wrapper: 
+        Using 'flex' ensures the Sidebar and Main Content sit side-by-side. 
+      */}
       <div style={{ display: 'flex', minHeight: '100vh' }}>
         
-        {/* වම්පස Sidebar එක */}
+        {/* Sidebar stays visible across all routes */}
         <Sidebar /> 
 
-        {/* දකුණුපස ප්‍රධාන පිටුව */}
+        {/* Main Content Area: 
+          'flex: 1' allows this div to take up the remaining width.
+        */}
         <div style={{ flex: 1, background: '#deebf7' }}>
           <Routes>
-            {/* පද්ධතියේ ආරම්භය (Default Page) Dashboard ලෙස සැකසීම */}
-            <Route path="/admin" element={<AdminDashboard />} />
+            {/* Route for the main Admin Overview */}
+            <Route path="/admin" element={<Dashboard />} />
             
+            {/* Route for Partner/Seller management */}
             <Route path="/admin/partners" element={<Partners />} />
+            
+            {/* Route for System Settings */}
             <Route path="/admin/settings" element={<Settings />} />
 
-            {/* යමෙක් / පමණක් ගැහුවොත් ඔහුව /admin (Dashboard) වෙත යොමු කරන්න */}
+            {/* Default Redirect: 
+              If the user visits the base URL "/", they are automatically 
+              sent to the "/admin" dashboard.
+            */}
             <Route path="/" element={<Navigate to="/admin" />} />
           </Routes>
         </div>
