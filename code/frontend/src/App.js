@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 // --- COMPONENT IMPORTS ---
+import Login from './pages/auth/Login.jsx'; 
 import Sidebar from './components/admin/Sidebar.jsx';
 import Partners from './pages/admin/Partners.jsx'; 
 import Settings from './pages/admin/Settings.jsx';
@@ -38,6 +39,7 @@ function App() {
     <Router>
       <LayoutWrapper>
         <Routes>
+          <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="/admin" element={<Dashboard />} />
           <Route path="/admin/partners" element={<Partners />} />
