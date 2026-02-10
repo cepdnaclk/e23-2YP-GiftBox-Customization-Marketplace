@@ -7,6 +7,7 @@ import Sidebar from './components/admin/Sidebar.jsx';
 import Partners from './pages/admin/Partners.jsx'; 
 import Settings from './pages/admin/Settings.jsx';
 import Dashboard from './pages/admin/Dashboard.jsx';
+import PendingPartners from './pages/admin/PendingPartners.jsx';
 
 /**
  * Main App Component
@@ -34,6 +35,8 @@ function App() {
             
             {/* Route for Partner/Seller management */}
             <Route path="/admin/partners" element={<Partners />} />
+
+            <Route path="/admin/partners/pending" element={<PendingPartners />} />
             
             {/* Route for System Settings */}
             <Route path="/admin/settings" element={<Settings />} />
