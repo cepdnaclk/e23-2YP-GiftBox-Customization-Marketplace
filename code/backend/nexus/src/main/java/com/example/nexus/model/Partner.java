@@ -7,7 +7,6 @@ import jakarta.persistence.*;
 public class Partner {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increments the ID
     @Column(name = "partner_id")
     private int partnerId;
 
