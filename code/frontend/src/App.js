@@ -3,11 +3,13 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 
 // --- COMPONENT IMPORTS ---
 import Login from './pages/auth/Login.jsx'; 
+import Register from './pages/auth/Register.jsx';
 import Sidebar from './components/admin/Sidebar.jsx';
 import Partners from './pages/admin/Partners.jsx'; 
 import Settings from './pages/admin/Settings.jsx';
 import Dashboard from './pages/admin/Dashboard.jsx';
 import Home from './pages/user/Home.jsx';
+import UserDashboard from './pages/user/UserDashboard.jsx';
 
 const LayoutWrapper = ({ children }) => {
   const location = useLocation();
@@ -39,6 +41,8 @@ function App() {
     <Router>
       <LayoutWrapper>
         <Routes>
+          <Route path="/user-dashboard" element={<UserDashboard />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="/admin" element={<Dashboard />} />

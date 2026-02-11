@@ -8,18 +8,32 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleLogin = (e) => {
-        e.preventDefault();
+    // Prevent the default form submission behavior (stops the page from refreshing immediately)
+    e.preventDefault();
 
-        // Placeholder logic for your 2nd year project
-        // Later, this will connect to Dineth's Spring Boot backend
-        if (email === "admin@gift.com") {
-            // If admin logs in, send to the Admin Dashboard
-            navigate('/admin');
-        } else {
-            // If a customer logs in, keep them on the Home page or User Dashboard
-            navigate('/');
-        }
-    };
+    // 1. Check if the user is an Admin
+    if (email === "admin@gift.com") {
+        // Save Admin data in the browser's storage (localStorage) so the app remembers who is logged in
+        localStorage.setItem('user', JSON.stringify({ name: "Admin", role: "admin" }));
+        
+        // Redirect the admin to the Admin Dashboard (Dineth's part)
+        navigate('/admin');
+    } else {
+        // 2. If a Customer logs in (e.g., seni@gift.com)
+        // Extract a name from the email (everything before the '@' sign)
+        const customerName = email.split('@')[0];
+
+        // Save Customer data in the browser's storage
+        localStorage.setItem('user', JSON.stringify({ name: customerName, role: "customer" }));
+        
+        // Redirect the customer back to the main Home page
+        navigate('/user-dashboard');
+    }
+
+    // 3. Force a page reload so that other components (like your Home page) 
+    // can detect the new user data from localStorage immediately
+    window.location.reload(); 
+};
 
     return (
         <div style={styles.container}>
