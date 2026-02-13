@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from '../components/admin/Sidebar';
 import AdminFooter from '../components/admin/AdminFooter';
+import TopBar from '../components/admin/TopBar.jsx';
 
 const AdminLayout = ({ children }) => {
   return (
@@ -20,6 +21,10 @@ const AdminLayout = ({ children }) => {
           flexDirection: 'column', 
           background: '#96dfe9' 
         }}>
+
+          {/* Top Navigation Bar */}
+          <TopBar />
+
           {/* Main dynamic content where Dashboard/Partners will load */}
           <main style={{ flex: 1, padding: '0px' }}>
             {children}

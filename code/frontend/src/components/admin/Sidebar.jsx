@@ -48,7 +48,7 @@ const Sidebar = () => {
         fontWeight: 'bold', 
         borderBottom: '1px solid #1f2937' 
       }}>
-         Admin Panel
+         Giftore
       </div>
       
       {/* Navigation Menu */}
