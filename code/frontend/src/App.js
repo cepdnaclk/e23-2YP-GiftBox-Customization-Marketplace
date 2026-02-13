@@ -1,50 +1,54 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 
-// --- COMPONENT IMPORTS ---
-// Ensure these paths match your actual folder structure
+// --- ADMIN IMPORTS ---
 import Sidebar from './components/admin/Sidebar.jsx';
 import Partners from './pages/admin/Partners.jsx'; 
 import Settings from './pages/admin/Settings.jsx';
 import Dashboard from './pages/admin/Dashboard.jsx';
 
+// --- SELLER IMPORTS ---
+
+import SellerDashboard from './pages/seller/SellerDashboard.jsx';
+
 /**
  * Main App Component
- * Uses React Router to manage navigation and a Flexbox layout 
- * to keep the Sidebar fixed on the left.
+  * This component sets up the routing for both the Admin and Seller sections of the application.
  */
 function App() {
   return (
     <Router>
-      {/* Main Layout Wrapper: 
-        Using 'flex' ensures the Sidebar and Main Content sit side-by-side. 
-      */}
-      <div style={{ display: 'flex', minHeight: '100vh' }}>
+      <div style={{ minHeight: '100vh' }}>
         
-        {/* Sidebar stays visible across all routes */}
-        <Sidebar /> 
+        <Routes>
+          {/* --- ADMIN SECTION --- */}
+          {/* / */}
+          <Route 
+            path="/admin/*" 
+            element={
+              <div style={{ display: 'flex' }}>
+                <Sidebar /> 
+                <div style={{ flex: 1, background: '#deebf7' }}>
+                  <Routes>
+                    <Route path="/" element={<Dashboard />} />
+                    <Route path="partners" element={<Partners />} />
+                    <Route path="settings" element={<Settings />} />
+                  </Routes>
+                </div>
+              </div>
+            } 
+          />
 
-        {/* Main Content Area: 
-          'flex: 1' allows this div to take up the remaining width.
-        */}
-        <div style={{ flex: 1, background: '#deebf7' }}>
-          <Routes>
-            {/* Route for the main Admin Overview */}
-            <Route path="/admin" element={<Dashboard />} />
-            
-            {/* Route for Partner/Seller management */}
-            <Route path="/admin/partners" element={<Partners />} />
-            
-            {/* Route for System Settings */}
-            <Route path="/admin/settings" element={<Settings />} />
+          {/* --- SELLER SECTION --- */}
+          <Route path="/seller" element={<SellerDashboard />} />
 
-            {/* Default Redirect: 
-              If the user visits the base URL "/", they are automatically 
-              sent to the "/admin" dashboard.
-            */}
-            <Route path="/" element={<Navigate to="/admin" />} />
-          </Routes>
-        </div>
+          {/* --- DEFAULT REDIRECT --- */}
+
+          <Route path="/" element={<Navigate to="/admin" />} />
+          
+          
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
 
       </div>
     </Router>
