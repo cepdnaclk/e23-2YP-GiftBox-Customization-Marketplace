@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { assets } from '../assets/assets';
 
 const Login = () => {
-  const [state, setState] = useState('Login'); // Default to Login (Front)
+  const [state, setState] = useState('Login');
 
   const toggleState = () => {
     setState(state === 'Sign Up' ? 'Login' : 'Sign Up');
@@ -35,8 +35,12 @@ const Login = () => {
                 <img src={assets.lock_icon} className="w-5" alt="" />
                 <input className='bg-transparent outline-none w-full text-white' type="password" placeholder='Password' required/>
               </div>
+              <p className='text-sm text-indigo-400 cursor-pointer hover:text-indigo-200 mb-4 ml-2 w-fit'>
+                Forgot Password?
+              </p>
 
-              <button className='w-full py-2.5 rounded-full bg-indigo-500 text-white font-medium hover:bg-indigo-600 transition-all'>
+
+              <button className='w-full py-2.5 rounded-full bg-indigo-500 text-white font-medium hover:bg-indigo-600 hover:scale-105 transition-all'>
                 Login
               </button>
             </form>
@@ -71,7 +75,7 @@ const Login = () => {
                 <input className='bg-transparent outline-none w-full text-white' type="password" placeholder='Password' required/>
               </div>
 
-              <button className='w-full py-2.5 rounded-full bg-indigo-500 text-white font-medium hover:bg-indigo-600 transition-all'>
+              <button className='w-full py-2.5 rounded-full bg-indigo-500 text-white font-medium hover:bg-indigo-600 hover:scale-105 transition-all'>
                 Sign Up
               </button>
             </form>
