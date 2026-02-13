@@ -17,7 +17,6 @@ const Sidebar = () => {
     color: '#aeb6f2',        // Muted light purple/blue text
     textDecoration: 'none',  // Removes the default underline
     gap: '12px',             // Space between the icon and the text
-    borderRadius: '8px',
     marginBottom: '8px',
     transition: '0.3s'       // Smooth transition for hover/active states
   };
@@ -26,28 +25,30 @@ const Sidebar = () => {
   const activeLinkStyle = {
     ...linkStyle,            // Inherit all base styles
     backgroundColor: '#293546', // Darker blue-gray background for focus
-    color: '#e4e5e6',        // Brighter text color for contrast
+    color: '#12171b',        // Brighter text color for contrast
   };
 
   return (
     // Main Sidebar Container
     <div style={{ 
       width: '300px', 
-      height: '100vh', 
+      display: 'flex',
+      flexDirection: 'column',
+      flexShrink: 0, 
       background: '#111827', // Dark slate background
       color: 'white', 
       display: 'flex', 
-      flexDirection: 'column' 
+      flexDirection: 'column'
     }}>
       
       {/* Sidebar Branding/Header Section */}
       <div style={{ 
         padding: '25px', 
-        fontSize: '20px', 
+        fontSize: '25px', 
         fontWeight: 'bold', 
         borderBottom: '1px solid #1f2937' 
       }}>
-         Admin Panel
+         Giftore
       </div>
       
       {/* Navigation Menu */}
