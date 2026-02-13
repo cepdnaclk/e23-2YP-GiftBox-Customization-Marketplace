@@ -1,31 +1,37 @@
-// AdminLayout.js
 import React from 'react';
-import Sidebar from '../components/admin/Sidebar.jsx';
-import AdminFooter from '../components/admin/AdminFooter.jsx';
+import Sidebar from '../components/admin/Sidebar';
+import AdminFooter from '../components/admin/AdminFooter';
 
 const AdminLayout = ({ children }) => {
   return (
-    // මුළු පිටුවම ආවරණය වන පරිදි overflow-x: hidden එක් කරන්න
-    <div style={{ display: 'flex', minHeight: '100vh', width: '100%', overflowX: 'hidden' }}>
+    /* Main container: Organized as a vertical column */
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       
-      {/* Sidebar එක ස්ථාවර පළලකින් යුක්ත විය යුතුයි */}
-      <Sidebar /> 
-
-      <div style={{ 
-        flex: 1, 
-        display: 'flex', 
-        flexDirection: 'column', 
-        backgroundColor: '#deebf7', // Nexus Giftbox Theme එකට ගැලපෙන වර්ණය
-        minWidth: 0 // Flexbox පළල ඉක්මවා යාම වැළැක්වීමට
-      }}>
-        {/* Main content එකට පළල 100% ලබා දෙන්න */}
-        <main style={{ flex: 1, width: '100%' }}>
-          {children}
-        </main>
+      {/* Top Part: Sidebar + Main Content Side-by-Side */}
+      <div style={{ display: 'flex', flex: 1 }}>
         
-        {/* Footer එක දැන් නිවැරදිව පතුලටම සහ මුළු පළලටම සැකසේ */}
+        {/* Sidebar: Persistent on the left */}
+        <Sidebar />
+
+        {/* Content Area: TopBar + Dynamic Page Content */}
+        <div style={{ 
+          flex: 1, 
+          display: 'flex', 
+          flexDirection: 'column', 
+          background: '#96dfe9' 
+        }}>
+          {/* Main dynamic content where Dashboard/Partners will load */}
+          <main style={{ flex: 1, padding: '0px' }}>
+            {children}
+          </main>
+        </div>
+      </div>
+
+      {/* Bottom Part: Full Width Footer (Spans across Sidebar and Content) */}
+      <div style={{ backgroundColor: '#3fadd5', width: '100%' }}>
         <AdminFooter />
       </div>
+      
     </div>
   );
 };
