@@ -2,7 +2,7 @@ import React from 'react'
 import { Routes,Route } from 'react-router-dom'
 import Home from './pages/Home'
 import EmailVerify from './pages/EmailVerify'
-import Login from './pages/Login'
+import Login from './pages/login'
 import ResetPassword from './pages/ResetPassword'
 
 
