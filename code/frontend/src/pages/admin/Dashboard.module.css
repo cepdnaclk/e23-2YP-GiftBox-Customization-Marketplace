@@ -1,0 +1,33 @@
+/* Dashboard.module.css */
+
+.squareCard {
+  width: 900px;
+  height: 250px;
+  background-color: #6dc9d7;
+  border-radius: 12px;
+  display: flex;
+  box-shadow: 0 4px 12px rgba(220, 24, 24, 0.1);
+  overflow: hidden; 
+}
+
+.cardStats {
+  width: 100%;
+  height: 100%;
+  color: #297bcd; 
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 25px;
+}
+
+.cardStats h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.cardStats p {
+  font-size: 36px;
+  font-weight: 700;
+  margin: 0;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaThLarge, FaStore, FaCog } from 'react-icons/fa';
+import { FaThLarge, FaStore, FaCog, FaShoppingBag, FaUsersCog, } from 'react-icons/fa';
 
 /**
  * Sidebar Component
@@ -37,8 +37,10 @@ const Sidebar = () => {
       flexShrink: 0, 
       background: '#111827', // Dark slate background
       color: 'white', 
-      display: 'flex', 
-      flexDirection: 'column'
+      height: '100vh',     // Full viewport height
+      overflowY: 'auto',   // Scroll if content exceeds viewport height
+      position: 'fixed',   // Fixes the sidebar to the left side of the screen
+      top: 0,
     }}>
       
       {/* Sidebar Branding/Header Section */}
@@ -72,6 +74,14 @@ const Sidebar = () => {
           <FaThLarge size={18} /> Dashboard
         </NavLink>
         
+        {/* Staff Management Link */}
+        <NavLink 
+          to="/admin/staff-management" 
+          style={({ isActive }) => isActive ? activeLinkStyle : linkStyle}
+        >
+          <FaUsersCog size={18} /> Staff Management
+        </NavLink>
+
         {/* Partners Link */}
         <NavLink 
           to="/admin/partners" 
@@ -80,6 +90,14 @@ const Sidebar = () => {
           <FaStore size={18} /> Partners
         </NavLink>
         
+        {/* Customers Link */}
+        <NavLink 
+          to="/admin/customers" 
+          style={({ isActive }) => isActive ? activeLinkStyle : linkStyle}
+        >
+          <FaShoppingBag size={18} /> Customers
+        </NavLink>
+
         {/* Settings Link */}
         <NavLink 
           to="/admin/settings" 

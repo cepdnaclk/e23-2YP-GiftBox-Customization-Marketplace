@@ -1,60 +1,23 @@
 import React from 'react';
-import { Search, Bell, User } from 'lucide-react';
+import { Search, Bell, Menu } from 'lucide-react'; 
 
-/**
- * TopBar Component
- * Designed for the Nexus Giftbox Marketplace Admin Panel.
- */
-const TopBar = () => {
+const Header = () => {
   return (
-    /* 1. 'flex' and 'items-center' on the header ensure all direct 
-          children (Search area and Action area) are vertically centered.
-       2. 'h-16' sets a consistent height for the bar.
-    */
-    <header className="h-16 bg-[#111827] flex items-center justify-between px-6 border-b border-gray-800 shadow-sm text-white">
-      
-      {/* Search Section Container: Vertically centered using 'items-center' */}
-      <div className="flex items-center space-x-6 flex-1 h-full">
+    <header className="h-16 bg-[#111827] flex items-center justify-between px-4 md:px-6 border-b border-gray-800 shadow-sm text-white relative z-20">
+
+      {/* Right Section: Notifications & Profile */}
+      <div className="flex items-center justify-end gap-4 w-48 shrink-0">
+        <button className="relative p-2 rounded-full hover:bg-gray-800 transition-colors text-gray-400">
+          <Bell className="h-5 w-5" />
+          <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-red-500 ring-2 ring-[#111827]"></span>
+        </button>
         
-        {/* Search Input Wrapper */}
-        <div className="relative w-full max-w-md hidden md:block">
-          {/* 'flex' and 'items-center' here ensure the search icon is 
-              perfectly centered inside the input height.
-          */}
-          <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <Search className="h-4 w-4 text-gray-400" />
-          </span>
-          <input
-            type="text"
-            className="block w-full pl-10 pr-3 py-2 border border-gray-700 rounded-full leading-5 bg-[#1f2937] text-gray-300 placeholder-gray-400 focus:outline-none focus:bg-gray-700 focus:ring-1 focus:ring-blue-500 sm:text-sm transition-all"
-            placeholder="Search"
-          />
-        </div>
+        {/* Profile Avatar */}
+        <div className="h-8 w-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 border border-gray-600 cursor-pointer hover:ring-2 hover:ring-offset-2 hover:ring-offset-[#111827] hover:ring-indigo-500 transition-all"></div>
       </div>
 
-      {/* Actions Section: Notification and Profile centered vertically */}
-      <div className="flex items-center space-x-5 h-full">
-        
-        {/* Notification Icon with Badge: Centered within its own flex container */}
-        <div className="relative cursor-pointer group flex items-center h-full">
-          <Bell size={18} className="text-gray-400 group-hover:text-white" />
-
-        </div>
-
-        {/* Profile Avatar Section: Perfectly centered vertically */}
-        <div className="flex items-center pl-2 h-full">
-          <div className="h-9 w-9 rounded-full border-2 border-gray-600 overflow-hidden cursor-pointer hover:border-blue-500 transition-all flex items-center justify-center">
-            <img 
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=32&q=80" 
-              alt="User profile" 
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </div>
-
-      </div>
     </header>
   );
 };
 
-export default TopBar;
+export default Header;
