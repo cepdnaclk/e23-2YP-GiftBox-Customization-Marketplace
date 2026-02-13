@@ -17,7 +17,7 @@ const Sidebar = () => {
     color: '#aeb6f2',        // Muted light purple/blue text
     textDecoration: 'none',  // Removes the default underline
     gap: '12px',             // Space between the icon and the text
-    borderRadius: '8px',
+    borderRadius: '0px',
     marginBottom: '8px',
     transition: '0.3s'       // Smooth transition for hover/active states
   };
