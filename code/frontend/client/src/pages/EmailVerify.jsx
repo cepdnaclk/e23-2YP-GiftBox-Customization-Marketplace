@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const EmailVerify = () => {
   const navigate = useNavigate();
-  const [timer, setTimer] = useState(60);
+  const [timer, setTimer] = useState(120);
   const [otp, setOtp] = useState(['', '', '', '']);
   const inputRefs = useRef([]);
 
